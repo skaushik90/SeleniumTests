@@ -28,11 +28,6 @@ public class GoogleFinanceSearchPage {
 //		driver.findElement(google_Finance_SearchBox_XPath).sendKeys(Keys.ENTER);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@data-exchange=\"BMV\"]")));
-		
-//		WebElement dropDown = driver.findElement(suggestion_Box_Open);
-//		
-////		Thread.sleep(20000);
-//		dropDown.findElement(By.xpath("//*[@id=\"nngdp1631\"]")).click();
 		driver.findElement(By.xpath("//*[@data-exchange=\"BMV\"]")).click();
 		
 		
