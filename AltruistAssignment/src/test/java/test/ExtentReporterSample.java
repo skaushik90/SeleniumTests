@@ -4,11 +4,11 @@ import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -16,9 +16,9 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.GoogleFinanceChartPage;
 import pages.GoogleFinanceSearchPage;
+import pages.OpenBrowser;
 
 public class ExtentReporterSample {
 	
@@ -27,19 +27,15 @@ public class ExtentReporterSample {
 	private ExtentSparkReporter spark = new ExtentSparkReporter("target/Spark.html");	
 	private ExtentTest test = null;
 	
+	@Parameters("browserName")
 	@BeforeTest
-	public void setupTest() throws InterruptedException {
-		
+	public void setupTest(String browserName) throws InterruptedException {
 		spark = new ExtentSparkReporter("target/Spark.html");
 		extent.attachReporter(spark);
 		test = extent.createTest("Sample Google Search Test");
 		
-		//SETUP: Open a Chrome browser
-		test.log(Status.INFO, "Open Chrome Driver");
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
-		
-		
+		//SETUP: Open a browser
+		driver = OpenBrowser.openBrowser(driver, browserName , test);		
 		
 	}
 	
@@ -55,7 +51,7 @@ public class ExtentReporterSample {
 		
 		// Search for GOOGL ticker
 		financeSearchPage.textbox_search("GOOGL");
-		financeSearchPage.search_Ticker();
+		financeSearchPage.search_Ticker("NASDAQ");
 		
 		test.log(Status.PASS, "Searched for GOOGL ticker");
 

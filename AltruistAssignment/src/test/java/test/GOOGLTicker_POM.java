@@ -41,7 +41,7 @@ public class GOOGLTicker_POM {
 		
 		// Search for GOOGL ticker
 		financeSearchPage.textbox_search("GOOGL");
-		financeSearchPage.search_Ticker();
+		financeSearchPage.search_Ticker("BMV");
 
 		//	Wait for 10 seconds or until Graph shows  
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));

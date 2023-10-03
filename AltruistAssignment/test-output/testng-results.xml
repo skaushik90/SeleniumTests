@@ -1,25 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-09-27T15:38:00 EDT" name="Default suite" finished-at="2023-09-27T15:38:06 EDT" duration-ms="6066">
+  <suite started-at="2023-10-02T20:59:58 EDT" name="Suite" finished-at="2023-10-02T21:00:06 EDT" duration-ms="7464">
     <groups>
     </groups>
-    <test started-at="2023-09-27T15:38:00 EDT" name="Default test" finished-at="2023-09-27T15:38:06 EDT" duration-ms="6066">
+    <test started-at="2023-10-02T20:59:58 EDT" name="TestChrome" finished-at="2023-10-02T21:00:04 EDT" duration-ms="5281">
       <class name="test.GOOGLTicker_POM">
-        <test-method is-config="true" signature="setupTest()[pri:0, instance:test.GOOGLTicker_POM@5fdcaa40]" started-at="2023-09-27T15:38:00 EDT" name="setupTest" finished-at="2023-09-27T15:38:03 EDT" duration-ms="2540" status="PASS">
+        <test-method is-config="true" signature="setupTest()[pri:0, instance:test.GOOGLTicker_POM@2525ff7e]" started-at="2023-10-02T20:59:58 EDT" name="setupTest" finished-at="2023-10-02T21:00:00 EDT" duration-ms="1902" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupTest -->
-        <test-method signature="googleFinanceSearch()[pri:0, instance:test.GOOGLTicker_POM@5fdcaa40]" started-at="2023-09-27T15:38:03 EDT" name="googleFinanceSearch" finished-at="2023-09-27T15:38:06 EDT" duration-ms="3316" status="PASS">
+        <test-method signature="googleFinanceSearch()[pri:0, instance:test.GOOGLTicker_POM@2525ff7e]" started-at="2023-10-02T21:00:00 EDT" name="googleFinanceSearch" finished-at="2023-10-02T21:00:03 EDT" duration-ms="3229" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- googleFinanceSearch -->
-        <test-method is-config="true" signature="teardownTest()[pri:0, instance:test.GOOGLTicker_POM@5fdcaa40]" started-at="2023-09-27T15:38:06 EDT" name="teardownTest" finished-at="2023-09-27T15:38:06 EDT" duration-ms="177" status="PASS">
+        <test-method is-config="true" signature="teardownTest()[pri:0, instance:test.GOOGLTicker_POM@2525ff7e]" started-at="2023-10-02T21:00:03 EDT" name="teardownTest" finished-at="2023-10-02T21:00:04 EDT" duration-ms="125" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardownTest -->
       </class> <!-- test.GOOGLTicker_POM -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- TestChrome -->
+    <test started-at="2023-10-02T20:59:58 EDT" name="TestFireFox" finished-at="2023-10-02T21:00:06 EDT" duration-ms="7464">
+      <class name="test.ExtentReporterSample">
+        <test-method is-config="true" signature="setupTest(java.lang.String)[pri:0, instance:test.ExtentReporterSample@21b2e768]" started-at="2023-10-02T20:59:58 EDT" name="setupTest" finished-at="2023-10-02T21:00:02 EDT" duration-ms="3583" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupTest -->
+        <test-method signature="googleFinanceSearch()[pri:0, instance:test.ExtentReporterSample@21b2e768]" started-at="2023-10-02T21:00:02 EDT" name="googleFinanceSearch" finished-at="2023-10-02T21:00:05 EDT" duration-ms="2986" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- googleFinanceSearch -->
+        <test-method is-config="true" signature="teardownTest()[pri:0, instance:test.ExtentReporterSample@21b2e768]" started-at="2023-10-02T21:00:05 EDT" name="teardownTest" finished-at="2023-10-02T21:00:06 EDT" duration-ms="885" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardownTest -->
+      </class> <!-- test.ExtentReporterSample -->
+    </test> <!-- TestFireFox -->
+  </suite> <!-- Suite -->
 </testng-results>
