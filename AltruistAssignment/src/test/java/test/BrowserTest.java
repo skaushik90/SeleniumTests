@@ -1,37 +1,49 @@
 package test;
 
 
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 
+import pages.InternetHookup;
 import pages.OpenBrowser;
-import pages.SauceDemoLogin;
-import pages.SauceDemoSwagLabs;
 
 public class BrowserTest {
 	
 	private WebDriver driver = null;
 	
 	@Parameters("browserName")
-	@BeforeTest
+	@BeforeMethod
 	public void setupTest(String browserName) {
 		driver = OpenBrowser.openBrowser(driver, browserName);
 		driver.get("https://the-internet.herokuapp.com/");
 	}
 	
 	@Test
-	public void testSauceDemo() throws InterruptedException {
-		SauceDemoLogin loginPage = new SauceDemoLogin(driver);
-		SauceDemoSwagLabs sauceDemo = new SauceDemoSwagLabs(driver);
-		loginPage.login("standard_user", "secret_sauce");
-		sauceDemo.addToCart();
-		sauceDemo.checkOut("Joker", "Batman", "12345");
+	public void testDragAndDrop() throws InterruptedException {
+		InternetHookup obj = new InternetHookup(driver);
+		obj.goToLink("Drag and Drop");
+		obj.dragAndDrop("A", "B");
 	}
 	
-	@AfterTest
+	@Test
+	public void testRightClickPopup() throws InterruptedException {
+		InternetHookup obj = new InternetHookup(driver);
+		obj.goToLink("Context Menu");
+		obj.contextPopup();
+	}
+	
+	@Test
+	public void testFileUploader() throws InterruptedException {
+		InternetHookup obj = new InternetHookup(driver);
+		obj.goToLink("File Upload");
+//		Thread.sleep(20000);
+		obj.fileUpload();
+	}
+	
+	@AfterMethod
 	public void tearDown() {
 		driver.quit();
 	}
