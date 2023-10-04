@@ -1,21 +1,38 @@
 package test;
 
+
 import org.openqa.selenium.WebDriver;
-//import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import pages.OpenBrowser;
+import pages.SauceDemoLogin;
+import pages.SauceDemoSwagLabs;
 
 public class BrowserTest {
 	
-	public static void main (String[] args) {
-		
-		String projectPath = System.getProperty("user.dir");
-		System.setProperty("webdriver.gecko.driver", projectPath+ "/src/test/resources/drivers/geckodriver");
-		WebDriver driver = new FirefoxDriver();
-		
-//		System.getProperty("webdriver.chrome.driver", "/AltruistExcercise/src/main/resources/drivers/Google Chrome for Testing.app");
-//		driver = new ChromeDriver();
-		
-		driver.get("https://www.google.com/");
+	private WebDriver driver = null;
+	
+	@Parameters("browserName")
+	@BeforeTest
+	public void setupTest(String browserName) {
+		driver = OpenBrowser.openBrowser(driver, browserName);
+		driver.get("https://the-internet.herokuapp.com/");
 	}
-
+	
+	@Test
+	public void testSauceDemo() throws InterruptedException {
+		SauceDemoLogin loginPage = new SauceDemoLogin(driver);
+		SauceDemoSwagLabs sauceDemo = new SauceDemoSwagLabs(driver);
+		loginPage.login("standard_user", "secret_sauce");
+		sauceDemo.addToCart();
+		sauceDemo.checkOut("Joker", "Batman", "12345");
+	}
+	
+	@AfterTest
+	public void tearDown() {
+		driver.quit();
+	}
 }
